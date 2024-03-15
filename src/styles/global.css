@@ -81,3 +81,9 @@
     @apply underline duration-700 underline-offset-2 hover:duration-700 hover:decoration-wavy;
   }
 }
+
+.hr-styler {
+  height: 1.5px;
+  color: #9b111a;
+  border-top-width: 1.5px;
+}
