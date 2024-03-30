@@ -1,6 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import "@/styles/global.css";
+
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("posts");
+import BlogPost from "../components/BlogPost.astro";
 
 const pageTabTitle = "Xavier Khew";
 
@@ -30,5 +33,18 @@ import Hr from "../components/Hr.astro";
 
   <section class='pt-m'>
     <h1 class='font-medium text-xl lg:text-xl'>Featured</h1>
+    <ul>
+      {
+        allPosts.map((post) => (
+          // <BlogPost url={post.url} title={post.frontmatter.title} />
+          <BlogPost
+            url={`/posts/${post.slug}/`}
+            title={post.data.title}
+            pubDate={post.data.pubDate}
+            description={post.data.description}
+          />
+        ))
+      }
+    </ul>
   </section>
 </Layout>

@@ -1,5 +1,33 @@
 ---
-const {title, url} = Astro.props;
+const { title, url, description, pubDate } = Astro.props;
+
+const months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+const pubDay = String(pubDate.getDate()).padStart(2, "0"); // Get day and ensure 2-digit format
+const pubMonth = months[pubDate.getMonth()]; // Get short form of month
+const pubYear = String(pubDate.getFullYear()); // Get year and take last 2 digits
+
+const formattedDate = `${pubDay} ${pubMonth} ${pubYear}`;
 ---
 
-<li><a href={url}>{title}</a></li>
+<li class='mb-4'>
+  <a href={url}>{title} </a>
+  <div>
+    {formattedDate}
+  </div>
+  <div>
+    {description}
+  </div>
+</li>
