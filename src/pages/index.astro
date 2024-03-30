@@ -4,10 +4,31 @@ import "@/styles/global.css";
 
 const pageTabTitle = "Xavier Khew";
 
-import { Button } from "@/components/ui/button";
+import Github from "../components/socials/Github.astro";
+import Instagram from "../components/socials/Instagram.astro";
+import X from "../components/socials/X.astro";
+import Hr from "../components/Hr.astro";
 ---
 
 <Layout title={pageTabTitle}>
-  <h1>Astro</h1>
-  <Button>Hello World</Button>
+  <section class='pt-s'>
+    <p class='pb-xs'>
+      Welcome to my blog, this is where I share my thoughts, experiences and
+      probably <br class='hidden md:block' /> everything & anything that I would
+      want to share. Hope you enjoy!
+    </p>
+    <div class='pb-xs'>
+      <p>Social Links:</p>
+      <div class='flex gap-xxs pt-xxxs'>
+        <Github size={25} />
+        <Instagram size={25} />
+        <X size={25} />
+      </div>
+    </div>
+    <Hr />
+  </section>
+
+  <section class='pt-m'>
+    <h1 class='font-medium text-xl lg:text-xl'>Featured</h1>
+  </section>
 </Layout>

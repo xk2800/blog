@@ -110,7 +110,19 @@ export default {
         'xl': '72px',
         'xxl': '96px',
         'xxxl': '120px',
-      }
+      },
+      gap: {
+        'xxxxs': '8px',
+        'xxxs': '12px',
+        'xxs': '16px',
+        'xs': '24px',
+        's': '36px',
+        'm': '48px',
+        'l': '56px',
+        'xl': '72px',
+        'xxl': '96px',
+        'xxxl': '120px',
+      },
 
     },
   },

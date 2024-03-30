@@ -74,7 +74,7 @@
     @apply font-lexendDeca leading-[1.4];
   }
   body {
-    @apply bg-backgroundColor text-baseTextColor;
+    @apply bg-backgroundColor text-baseTextColor text-sm lg:text-base;
   }
 
   a {
