@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import BlogPost from "../components/BlogPost.astro";
+const allPosts = await getCollection("posts");
+import "../styles/global.css";
+---
+
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='viewport' content='width=device-width' />
+    <meta name='generator' content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <Layout title={"hello"}>
+      <h1>Blogs go here</h1>
+
+      <ul>
+        {
+          allPosts.map((post) => (
+            // <BlogPost url={post.url} title={post.frontmatter.title} />
+            <BlogPost url={`/posts/${post.slug}/`} title={post.data.title} />
+          ))
+        }
+      </ul>
+    </Layout>
+  </body>
+</html>
