@@ -5,6 +5,7 @@ const postsCollection = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
+    featured: z.boolean().optional(),
     pubDate: z.date(),
     description: z.string(),
     author: z.string(),

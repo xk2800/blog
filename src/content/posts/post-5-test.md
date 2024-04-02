@@ -3,6 +3,7 @@
 title: This is my test blog
 author: Astro Learner
 description: "This post will show up on its own!"
+featured: false
 image:
   url: "https://docs.astro.build/default-og-image.png"
   alt: "The word astro against an illustration of planets and stars."
