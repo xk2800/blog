@@ -8,6 +8,7 @@ import BlogPost from "../components/BlogPost.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 const sortedPosts = getSortedPosts(allPosts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
+const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
 const pageTabTitle = "Xavier Khew";
 
@@ -51,7 +52,29 @@ import Hr from "../components/Hr.astro";
             ))}
           </ul>
         </section>
+        {recentPosts.length > 0 && <Hr />}
       </>
+    )
+  }
+
+  {
+    recentPosts.length > 0 && (
+      <section id='recent-posts'>
+        <h2>Recent Posts</h2>
+        <ul>
+          {recentPosts.map(
+            (post, index) =>
+              index < 4 && (
+                <BlogPost
+                  url={`/posts/${post.slug}/`}
+                  title={post.data.title}
+                  pubDate={post.data.pubDate}
+                  description={post.data.description}
+                />
+              )
+          )}
+        </ul>
+      </section>
     )
   }
 </Layout>
